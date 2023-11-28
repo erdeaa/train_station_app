@@ -66,7 +66,10 @@ class _AuthScreenState extends State<AuthScreen> {
                         MaterialPageRoute(builder: (context) => BottomNav()));
                   } else {
                     // Handle login failure
-                    print('Login failed. Invalid credentials.');
+                    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                      backgroundColor: Color.fromARGB(255, 160, 90, 165),
+                      content: Text('Login failed. Invalid credentials.'),
+                    ));
                   }
                 } else {
                   // Handle signup
@@ -78,11 +81,17 @@ class _AuthScreenState extends State<AuthScreen> {
                           MaterialPageRoute(builder: (context) => BottomNav()));
                     } else {
                       // Handle signup failure
-                      print('Signup failed. User already exists.');
+                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                        backgroundColor: Color.fromARGB(255, 160, 90, 165),
+                        content: Text('Signup failed. User already exists.'),
+                      ));
                     }
                   } else {
                     // Passwords don't match
-                    print('Passwords do not match');
+                    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                      backgroundColor: Color.fromARGB(255, 160, 90, 165),
+                      content: Text('Passwords do not match.'),
+                    ));
                   }
                 }
               },
